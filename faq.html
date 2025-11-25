@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footwear - Premium page</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #222;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: left;
+            width: 78%;
+            margin: 50px auto;
+        }
+
+        .header {
+            color: white;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.6s ease;
+
+        }
+
+        .header h1 {
+            text-align: left;
+            margin-top: 150px;
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            color: #F9B403;
+        }
+
+        .header p {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+
+        .faq-container {
+            background: #222;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease;
+            color: #ccc;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+
+        .faq-question h3 {
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: 600;
+            flex: 1;
+        }
+
+
+        .faq-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #ab7e0f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            color: #000;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 10px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 20px 10px 10px;
+        }
+
+        .faq-answer p {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        .category {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            display: none;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+                padding-left: 10px;
+            }
+
+            .header p {
+                padding-left: 10px;
+            }
+
+            .faq-container {
+                padding: 10px;
+            }
+
+            .faq-question h3 {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">Footswear</a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="./product.html" class="nav-link">Men</a>
+                    <div class="dropdown-content">
+                        <a href="#">Sneakers</a>
+                        <a href="#">Dress Shoes</a>
+                        <a href="#">Boots</a>
+                        <a href="#">Athletic</a>
+                        <a href="#">Casual</a>
+                        <a href="#">Sandals</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="./product.html" class="nav-link">Women</a>
+                    <div class="dropdown-content">
+                        <a href="#">Heels</a>
+                        <a href="#">Flats</a>
+                        <a href="#">Sneakers</a>
+                        <a href="#">Boots</a>
+                        <a href="#">Athletic</a>
+                        <a href="#">Sandals</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="./product.html" class="nav-link">Kids</a>
+                    <div class="dropdown-content">
+                        <a href="#">Boys</a>
+                        <a href="#">Girls</a>
+                        <a href="#">Toddlers</a>
+                        <a href="#">Infants</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="./about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./product.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./faq.html" class="nav-link">FAQ's</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./contactpage.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+
+            <div class="nav-icons">
+                <a href="./shopping.html">
+                    <button class="icon-btn" title="Shopping Cart" id="cartBtn">
+                        <i class="ri-shopping-cart-2-line"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </a>
+                <a href="./signUp.html">
+                    <button class="icon-btn" title="User Account" id="userBtn">
+                        <i class="ri-user-line"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our shoes</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="no-results" id="noResults">
+                <h3>No results found</h3>
+                <p>Try searching with different keywords</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What is your return policy?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer a 30-day return policy for all unworn shoes in their original packaging. Simply contact
+                        our customer service team to initiate a return, and we'll provide you with a prepaid shipping
+                        label. Refunds are processed within 5-7 business days after we receive your return.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How do I find my correct shoe size?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>We provide a detailed size chart on each product page. We recommend measuring your foot length
+                        and comparing it to our size guide. If you're between sizes, we suggest ordering the larger
+                        size. You can also check customer reviews for sizing feedback on specific styles.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long does shipping take?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Standard shipping takes 5-7 business days. Express shipping (2-3 business days) and overnight
+                        shipping options are also available at checkout. International shipping times vary by
+                        destination, typically ranging from 10-21 business days.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer free shipping?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer free standard shipping on all orders over $75. For orders under $75, a flat
+                        shipping fee of $8.99 applies. We also run special promotions throughout the year with free
+                        shipping on all orders.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Are your shoes true to size?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Most of our shoes fit true to size, but this can vary by brand and style. Each product page
+                        includes specific sizing information and customer reviews that often mention fit. Our customer
+                        service team is also available to help with sizing questions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How do I care for my shoes?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Care instructions vary by material. Leather shoes should be cleaned with a damp cloth and
+                        conditioned regularly. Suede requires a special brush and protector spray. Canvas shoes can
+                        often be machine washed on gentle cycle. Detailed care instructions are included with each pair.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I exchange my shoes for a different size?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We offer free size exchanges within 30 days of purchase. Contact our customer service
+                        team, and we'll send you the new size right away. You'll receive a prepaid label to return the
+                        original pair.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you have a loyalty program?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Our Shoe Lovers Rewards program gives you 1 point for every dollar spent. Earn exclusive
+                        discounts, early access to sales, and special birthday rewards. Sign up is free and you'll
+                        receive 50 bonus points just for joining!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I machine wash my shoes?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>We do not recommend machine washing as it may damage the material. Instead, use a soft cloth or
+                        brush for cleaning.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How should I store my shoes??</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Keep shoes in a cool, dry place, away from direct sunlight. Use shoe trees or stuff them with
+                        paper to maintain shape.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you have physical stores?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we have stores in select cities. You can check our Store Locator page for details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How can I contact customer support?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>You can reach us by email at support@shoestore.com
+                        or call our helpline at +91-XXXXXXXXXX (Mon–Sat, 10 AM – 7 PM).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer gift cards?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we provide digital and physical gift cards that can be used online or in-store.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer discounts for bulk or corporate orders?
+                    </h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we provide special discounts for bulk and corporate purchases. Please contact our sales team
+                        for details.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="footerlogo">
+                <div class="main-logo">
+                    <h2>Footswear</h2>
+                </div>
+                <div class="time">
+                    <p id="time">Monday - Friday:</p>
+                    <p>8:00 AM - 9:00 PM</p>
+                </div>
+                <p>Shoes play a crucial role in the world of fashion and personal style. Different types of shoes,
+                    such as sneakers, heels, boots, flats, etc.</p>
+            </div>
+
+            <div class="shop">
+                <p>SHOP</p>
+                <a href="./contactpage.html">Search</a>
+                <a href="./faq.html">Privacy policy</a>
+                <a href="./faq.html">Shipping & Delivery</a>
+                <a href="./faq.html">Terms & Conditions</a>
+            </div>
+
+            <div class="about">
+                <p>ABOUT US</p>
+                <a href="./about.html">About us</a>
+                <a href="./contactpage.html">Contact</a>
+                <a href="./faq.html">Faq's</a>
+                <a href="./productList.html">Category</a>
+                <a href="#">Blog Page</a>
+            </div>
+
+            <div class="share">
+                <h4>CONNECT</h4>
+                <p>Follow us on social media for the latest updates, style tips, and exclusive previews of our
+                    newest collections.</p>
+                <div class="apps">
+                    <div class="social-icon"><i class="ri-youtube-line"></i></div>
+                    <div class="social-icon"><i class="ri-twitter-x-line"></i></div>
+                    <div class="social-icon"><i class="ri-instagram-line"></i></div>
+                    <div class="social-icon"><i class="ri-facebook-line"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Footswear. All rights reserved.</p>
+            <img src="./image/pay.png" alt="Payment methods">
+            <div class="footer-btm-right">
+                <a href="./faq.html">
+                    <p>FAQ</p>
+                </a>
+                <a href="./faq.html">
+                    <p>Privacy Policy</p>
+                </a>
+                <a href="./about.html">
+                    <p>About Us</p>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('h3').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                    item.classList.remove('active');
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.classList.add('show');
+            } else {
+                noResults.classList.remove('show');
+            }
+        });
+
+    </script>
+    <script src="./cart-manager.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

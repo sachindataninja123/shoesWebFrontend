@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footwear - Premium shoes</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        body {
+            background-color: #222;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .header {
+            margin-top: 130px;
+            text-align: left;
+            color: white;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .header h1 {
+            font-size: 2.3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            color: #F9B403;
+        }
+
+        .header p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            animation: fadeInUp 0.8s ease;
+            margin-bottom: 80px;
+        }
+
+        .contact-form-section {
+            background: #222;
+            border: 1px solid #F9B403;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-section h2 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .contact-form-section .subtitle {
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ccc;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .form-group select option {
+            color: #222;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 0.5px solid #F9B403;
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: #ccc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            color: #fff;
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #F9B403;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .contact-info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            border: 1px solid #F9B403;
+            background: transparent;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(199, 178, 16, 0.15);
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            border: 1px solid #F9B403;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+        }
+
+        .info-card h3 {
+            color: #fff;
+            font-size: 1.3em;
+        }
+
+        .info-card p {
+            color: #ccc;
+            line-height: 1.8;
+            margin: 5px 0;
+        }
+
+        .info-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .info-card a:hover {
+            color: #764ba2;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            background-color: #7f5d06;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-btn i {
+            color: #fff;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: #fff;
+        }
+
+        .map iframe {
+            width: 100%;
+        }
+
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            animation: slideDown 0.3s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .contact-form-section,
+            .info-card {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .contact-form-section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">Footswear</a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="./product.html" class="nav-link">Men</a>
+                    <div class="dropdown-content">
+                        <a href="#">Sneakers</a>
+                        <a href="#">Dress Shoes</a>
+                        <a href="#">Boots</a>
+                        <a href="#">Athletic</a>
+                        <a href="#">Casual</a>
+                        <a href="#">Sandals</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="./product.html" class="nav-link">Women</a>
+                    <div class="dropdown-content">
+                        <a href="#">Heels</a>
+                        <a href="#">Flats</a>
+                        <a href="#">Sneakers</a>
+                        <a href="#">Boots</a>
+                        <a href="#">Athletic</a>
+                        <a href="#">Sandals</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="./product.html" class="nav-link">Kids</a>
+                    <div class="dropdown-content">
+                        <a href="#">Boys</a>
+                        <a href="#">Girls</a>
+                        <a href="#">Toddlers</a>
+                        <a href="#">Infants</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="./about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./product.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./faq.html" class="nav-link">FAQ's</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./contactpage.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+
+
+            <div class="nav-icons">
+                <a href="./shopping.html">
+                    <button class="icon-btn" title="Shopping Cart" id="cartBtn">
+                        <i class="ri-shopping-cart-2-line"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </a>
+                <a href="./signUp.html">
+                    <button class="icon-btn" title="User Account" id="userBtn">
+                        <i class="ri-user-line"></i>
+                    </button>
+                </a>
+            </div>
+
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Get In Touch</h1>
+            <p>We'd love to hear from you! Send us a message and we'll respond as soon as possible.</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <div class="contact-form-section">
+                <h2>Send us a Message</h2>
+                <p class="subtitle">Fill out the form below and we'll get back to you within 24 hours</p>
+
+                <div class="success-message" id="successMessage">
+                    ✓ Thank you! Your message has been sent successfully. We'll get back to you soon!
+                </div>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+1 (555) 000-0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="order">Order Inquiry</option>
+                            <option value="product">Product Question</option>
+                            <option value="return">Returns & Exchanges</option>
+                            <option value="shipping">Shipping Information</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" placeholder="Tell us how we can help you..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info-section">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon">📍</div>
+                        <h3>Visit Us</h3>
+                    </div>
+                    <p>123 Shoe Street</p>
+                    <p>Fashion District, NY 10001</p>
+                    <p>United States</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon">📞</div>
+                        <h3>Call Us</h3>
+                    </div>
+                    <p><strong>Customer Service:</strong></p>
+                    <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                    <p>Mon-Fri: 9AM - 6PM EST</p>
+                    <p>Sat-Sun: 10AM - 4PM EST</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon">✉️</div>
+                        <h3>Email Us</h3>
+                    </div>
+                    <p><strong>General Inquiries:</strong></p>
+                    <p><a href="mailto:info@shoestore.com">info@shoestore.com</a></p>
+                    <p><strong>Customer Support:</strong></p>
+                    <p><a href="mailto:support@shoestore.com">support@shoestore.com</a></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon">🌐</div>
+                        <h3>Follow Us</h3>
+                    </div>
+                    <p>Stay connected with us on social media</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" title="Facebook"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="social-btn" title="Instagram"><i class="ri-instagram-line"></i></a>
+                        <a href="#" class="social-btn" title="Twitter"><i class="ri-twitter-x-line"></i></a>
+                        <a href="#" class="social-btn" title="LinkedIn"><i class="ri-youtube-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7009.372032218192!2d77.24762654245093!3d28.549155852841285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3c59105a87f%3A0x5adea99505f21b93!2sNehru%20Place%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1759432145613!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <div class="footerlogo">
+                <div class="main-logo">
+                    <h2>Footswear</h2>
+                </div>
+                <div class="time">
+                    <p id="time">Monday - Friday:</p>
+                    <p>8:00 AM - 9:00 PM</p>
+                </div>
+                <p>Shoes play a crucial role in the world of fashion and personal style. Different types of shoes,
+                    such as sneakers, heels, boots, flats, etc.</p>
+            </div>
+
+            <div class="shop">
+                <p>SHOP</p>
+                <a href="./contactpage.html">Search</a>
+                <a href="./faq.html">Privacy policy</a>
+                <a href="./faq.html">Shipping & Delivery</a>
+                <a href="./faq.html">Terms & Conditions</a>
+            </div>
+
+            <div class="about">
+                <p>ABOUT US</p>
+                <a href="./about.html">About us</a>
+                <a href="./contactpage.html">Contact</a>
+                <a href="./faq.html">Faq's</a>
+                <a href="./productList.html">Category</a>
+                <a href="#">Blog Page</a>
+            </div>
+
+            <div class="share">
+                <h4>CONNECT</h4>
+                <p>Follow us on social media for the latest updates, style tips, and exclusive previews of our
+                    newest collections.</p>
+                <div class="apps">
+                    <div class="social-icon"><i class="ri-youtube-line"></i></div>
+                    <div class="social-icon"><i class="ri-twitter-x-line"></i></div>
+                    <div class="social-icon"><i class="ri-instagram-line"></i></div>
+                    <div class="social-icon"><i class="ri-facebook-line"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Footswear. All rights reserved.</p>
+            <img src="./image/pay.png" alt="Payment methods">
+            <div class="footer-btm-right">
+                <a href="./faq.html">
+                    <p>FAQ</p>
+                </a>
+                <a href="./faq.html">
+                    <p>Privacy Policy</p>
+                </a>
+                <a href="./about.html">
+                    <p>About Us</p>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            console.log('Form submitted:', {
+                name,
+                email,
+                phone,
+                subject,
+                message
+            });
+
+            successMessage.classList.add('show');
+            contactForm.reset();
+
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.value) {
+                    input.style.borderColor = '#667eea';
+                } else {
+                    input.style.borderColor = '#e0e0e0';
+                }
+            });
+        });
+
+     
+    </script>
+    <script src="./cart-manager.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

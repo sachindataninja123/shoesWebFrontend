@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footwear - Premium Shoes</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #222;
+        }
+
+        #productListingPage {
+            display: block;
+            background-color: #222;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Product Page Header */
+        .prod-page-header {
+            background-color: #222;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-top: 100px;
+        }
+
+        .prod-header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: block;
+        }
+
+        .prod-page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #F9B403;
+            font-weight: 700;
+            display: block;
+        }
+
+        .prod-search-container {
+            position: relative;
+            display: block;
+
+        }
+
+        .prod-search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #F9B403;
+            pointer-events: none;
+            display: block;
+        }
+
+        .prod-search-input {
+            width: 80%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+            background: transparent;
+            border: 1px solid #F9B403;
+            color: #111;
+            display: block;
+            box-sizing: border-box;
+        }
+
+        .prod-search-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            color: #fff;
+        }
+
+        .prod-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .prod-sidebar {
+            width: 280px;
+            background-color: #222;
+            border: 1px solid #F9B403;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            display: block;
+            box-sizing: border-box;
+
+        }
+
+        .prod-sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .prod-sidebar-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            display: block;
+        }
+
+        .prod-clear-btn {
+            background: none;
+            border: none;
+            color: #3b82f6;
+            cursor: pointer;
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+            display: inline-block;
+        }
+
+        .prod-clear-btn:hover {
+            color: #1d4ed8;
+        }
+
+        .prod-filter-section {
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .prod-filter-title {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+            display: block;
+        }
+
+        .prod-radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+        }
+
+        .prod-radio-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+        }
+
+        .prod-radio-label input[type="radio"] {
+            margin-right: 0.5rem;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+
+        }
+
+        .prod-radio-label span {
+            display: inline-block;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .prod-size-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+
+        .prod-size-btn {
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            background-color: #f3f4f6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            color: #111;
+            text-align: center;
+            display: block;
+            box-sizing: border-box;
+        }
+
+        .prod-size-btn:hover {
+            background-color: #ccc;
+        }
+
+        .prod-size-btn.active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        .prod-price-slider {
+            width: 100%;
+            margin-bottom: 0.75rem;
+            height: 6px;
+            cursor: pointer;
+            display: block;
+        }
+
+        .prod-price-range {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: #fff;
+        }
+
+        .prod-price-range span {
+            display: inline-block;
+        }
+
+        .prod-main-content {
+            flex: 1;
+            display: block;
+            min-width: 0;
+        }
+
+        .prod-products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .prod-count-text {
+            color: #6b7280;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .prod-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .prod-card {
+            background-color: #e7e4e4;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .prod-card:hover {
+            box-shadow: 0 10px 25px #c8c51846;
+            transform: translateY(-4px);
+        }
+
+        .prod-card-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: contain;
+            background-color: #f3f4f6;
+            display: block;
+
+        }
+
+        .prod-card-image img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .prod-card-info {
+            padding: 1rem;
+            display: block;
+            box-sizing: border-box;
+            
+        }
+
+        .prod-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.5rem;
+
+        }
+
+        .prod-card-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #111827;
+            display: block;
+        
+        }
+
+        .prod-card-category {
+            background-color: #ccc;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #000;
+            text-transform: capitalize;
+            display: inline-block;
+        }
+
+        .prod-card-color {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+            display: block;
+           
+        }
+
+        .prod-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .prod-card-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            display: inline-block;
+        
+        }
+
+        .prod-add-to-cart-btn {
+            background-color: #F9B403;
+            color: #fff;
+            font-weight: 550;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: background-color 0.2s;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .prod-add-to-cart-btn:hover {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .prod-add-to-cart-btn.added {
+            background-color: #10b981;
+        }
+
+        .prod-card-sizes {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #113f99;
+            font-size: 0.75rem;
+            color: #333;
+            display: block;
+        }
+
+        .prod-no-products {
+            text-align: center;
+            padding: 3rem;
+            grid-column: 1 / -1;
+            display: block;
+        }
+
+        .prod-no-products p {
+            color: #6b7280;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .prod-no-products button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .prod-count-text {
+            color: #ccc;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #10b981;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 10000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .prod-container {
+                flex-direction: column;
+            }
+
+            .prod-sidebar {
+                width: 100%;
+                position: static;
+            }
+
+            .prod-products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .prod-page-header {
+                top: 0;
+            }
+
+            .toast {
+                right: 15px;
+                left: 15px;
+                bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Your navbar goes here -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">Footswear</a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="./product.html" class="nav-link">Men</a>
+                    <div class="dropdown-content">
+                        <a href="#">Sneakers</a>
+                        <a href="#">Dress Shoes</a>
+                        <a href="#">Boots</a>
+                        <a href="#">Athletic</a>
+                        <a href="#">Casual</a>
+                        <a href="#">Sandals</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="./product.html" class="nav-link">Women</a>
+                    <div class="dropdown-content">
+                        <a href="#">Heels</a>
+                        <a href="#">Flats</a>
+                        <a href="#">Sneakers</a>
+                        <a href="#">Boots</a>
+                        <a href="#">Athletic</a>
+                        <a href="#">Sandals</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="./product.html" class="nav-link">Kids</a>
+                    <div class="dropdown-content">
+                        <a href="#">Boys</a>
+                        <a href="#">Girls</a>
+                        <a href="#">Toddlers</a>
+                        <a href="#">Infants</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="./about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./product.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./faq.html" class="nav-link">FAQ's</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./contactpage.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="./shopping.html">
+                    <button class="icon-btn" title="Shopping Cart" id="cartBtn">
+                        <i class="ri-shopping-cart-2-line"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </a>
+                <a href="./signUp.html">
+                    <button class="icon-btn" title="User Account" id="userBtn">
+                        <i class="ri-user-line"></i>
+                    </button>
+                </a>
+            </div>
+
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div id="productListingPage">
+        <header class="prod-page-header">
+            <div class="prod-header-content">
+                <h1 class="prod-page-title">Our Products</h1>
+                <div class="prod-search-container">
+                    <svg class="prod-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="prodSearchInput" class="prod-search-input"
+                        placeholder="Search by name or color...">
+                </div>
+            </div>
+        </header>
+
+        <div class="prod-container">
+            <aside class="prod-sidebar">
+                <div class="prod-sidebar-header">
+                    <h2 class="prod-sidebar-title">Filters</h2>
+                    <button class="prod-clear-btn" onclick="clearProdFilters()">Clear All</button>
+                </div>
+
+                <div class="prod-filter-section">
+                    <h3 class="prod-filter-title">Category</h3>
+                    <div class="prod-radio-group">
+                        <label class="prod-radio-label">
+                            <input type="radio" name="prodCategory" value="all" checked onchange="filterProdList()">
+                            <span>All Shoes</span>
+                        </label>
+                        <label class="prod-radio-label">
+                            <input type="radio" name="prodCategory" value="men" onchange="filterProdList()">
+                            <span>Men</span>
+                        </label>
+                        <label class="prod-radio-label">
+                            <input type="radio" name="prodCategory" value="women" onchange="filterProdList()">
+                            <span>Women</span>
+                        </label>
+                        <label class="prod-radio-label">
+                            <input type="radio" name="prodCategory" value="kids" onchange="filterProdList()">
+                            <span>Kids</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="prod-filter-section">
+                    <h3 class="prod-filter-title">Size</h3>
+                    <div class="prod-size-grid" id="prodSizeGrid"></div>
+                </div>
+
+                <div class="prod-filter-section">
+                    <h3 class="prod-filter-title">Price Range</h3>
+                    <input type="range" class="prod-price-slider" id="prodPriceSlider" min="0" max="20000" value="20000"
+                        oninput="updateProdPriceRange()">
+                    <div class="prod-price-range">
+                        <span>₹0</span>
+                        <span id="prodMaxPrice">₹20000</span>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="prod-main-content">
+                <div class="prod-products-header">
+                    <p class="prod-count-text" id="prodCountText">0 products found</p>
+                </div>
+                <div class="prod-products-grid" id="prodProductsGrid"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Your footer goes here -->
+    <footer>
+        <div class="footer">
+            <div class="footerlogo">
+                <div class="main-logo">
+                    <h2>Footswear</h2>
+                </div>
+                <div class="time">
+                    <p id="time">Monday - Friday:</p>
+                    <p>8:00 AM - 9:00 PM</p>
+                </div>
+                <p>Shoes play a crucial role in the world of fashion and personal style. Different types of shoes,
+                    such as sneakers, heels, boots, flats, etc.</p>
+            </div>
+
+            <div class="shop">
+                <p>SHOP</p>
+                <a href="./contactpage.html">Search</a>
+                <a href="./faq.html">Privacy policy</a>
+                <a href="./faq.html">Shipping & Delivery</a>
+                <a href="./faq.html">Terms & Conditions</a>
+            </div>
+
+            <div class="about">
+                <p>ABOUT US</p>
+                <a href="./about.html">About us</a>
+                <a href="./contactpage.html">Contact</a>
+                <a href="./faq.html">Faq's</a>
+                <a href="./productList.html">Category</a>
+                <a href="#">Blog Page</a>
+            </div>
+
+            <div class="share">
+                <h4>CONNECT</h4>
+                <p>Follow us on social media for the latest updates, style tips, and exclusive previews of our
+                    newest collections.</p>
+                <div class="apps">
+                    <div class="social-icon"><i class="ri-youtube-line"></i></div>
+                    <div class="social-icon"><i class="ri-twitter-x-line"></i></div>
+                    <div class="social-icon"><i class="ri-instagram-line"></i></div>
+                    <div class="social-icon"><i class="ri-facebook-line"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Footswear. All rights reserved.</p>
+            <img src="./image/pay.png" alt="Payment methods">
+            <div class="footer-btm-right">
+                <a href="./faq.html">
+                    <p>FAQ</p>
+                </a>
+                <a href="./faq.html">
+                    <p>Privacy Policy</p>
+                </a>
+                <a href="./about.html">
+                    <p>About Us</p>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const prodShoeData = [
+            { id: 1, name: 'Air Max Running', category: 'men', price: 2499, sizes: [8, 9, 10, 11, 12], image: "./image/s1.png", color: 'Red' },
+            { id: 2, name: 'Classic Sneakers', category: 'women', price: 7499, sizes: [5, 6, 7, 8, 9], image: "./image/s3.png", color: 'White' },
+            { id: 3, name: 'Sport Pro Elite', category: 'men', price: 13299, sizes: [9, 10, 11, 12, 13], image: "./image/s4.png", color: 'Black' },
+            { id: 4, name: 'Kids Adventure', category: 'kids', price: 4149, sizes: [1, 2, 3, 4, 5], image: "./image/s5.png", color: 'Blue' },
+            { id: 5, name: 'Urban Walker', category: 'women', price: 8299, sizes: [6, 7, 8, 9, 10], image: "./image/s6.png", color: 'Beige' },
+            { id: 6, name: 'Trail Runner', category: 'men', price: 11649, sizes: [8, 9, 10, 11, 12], image: "./image/s7.png", color: 'Green' },
+            { id: 7, name: 'Fashion Boots', category: 'women', price: 9999, sizes: [5, 6, 7, 8, 9], image: "./image/s8.png", color: 'Brown' },
+            { id: 8, name: 'Youth Sport', category: 'kids', price: 4999, sizes: [2, 3, 4, 5, 6], image: "./image/s9.png", color: 'Pink' },
+            { id: 9, name: 'Business Classic', category: 'men', price: 12499, sizes: [9, 10, 11, 12], image: "./image/s10.png", color: 'Black' },
+            { id: 10, name: 'Casual Comfort', category: 'women', price: 6649, sizes: [6, 7, 8, 9], image: "./image/s11.png", color: 'Gray' },
+            { id: 11, name: 'Basketball Pro', category: 'men', price: 14149, sizes: [9, 10, 11, 12, 13], image: "./image/s12.png", color: 'Red' },
+            { id: 12, name: 'Kids Fun Run', category: 'kids', price: 3749, sizes: [1, 2, 3, 4], image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400', color: 'Yellow' }
+        ];
+
+        const prodSizeOptions = {
+            men: [8, 9, 10, 11, 12, 13],
+            women: [5, 6, 7, 8, 9, 10],
+            kids: [1, 2, 3, 4, 5, 6],
+            all: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+        };
+
+        let selectedProdSizes = [];
+
+        // Cart Management
+        function getCart() {
+            const cart = localStorage.getItem('shoppingCart');
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('shoppingCart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        function addToCart(productId) {
+            const product = prodShoeData.find(p => p.id === productId);
+            if (!product) return;
+
+            const cart = getCart();
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1,
+                    selectedSize: product.sizes[0] // Default to first available size
+                });
+            }
+
+            saveCart(cart);
+            showToast('Added to cart!');
+            
+            // Visual feedback on button
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Added!';
+            btn.classList.add('added');
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.classList.remove('added');
+            }, 1500);
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCountElement = document.getElementById('cartCount');
+            if (cartCountElement) {
+                cartCountElement.textContent = totalItems;
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = '<i class="ri-check-line" style="font-size: 1.5rem;"></i><span>' + message + '</span>';
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 2000);
+        }
+
+        function initProdSizeButtons() {
+            const categoryElement = document.querySelector('input[name="prodCategory"]:checked');
+            if (!categoryElement) return;
+
+            const category = categoryElement.value;
+            const sizeGrid = document.getElementById('prodSizeGrid');
+            if (!sizeGrid) return;
+
+            sizeGrid.innerHTML = '';
+
+            const sizes = prodSizeOptions[category];
+            sizes.forEach(size => {
+                const btn = document.createElement('button');
+                btn.className = 'prod-size-btn';
+                btn.textContent = size;
+                btn.onclick = () => toggleProdSize(size, btn);
+                sizeGrid.appendChild(btn);
+            });
+        }
+
+        function toggleProdSize(size, btn) {
+            if (selectedProdSizes.includes(size)) {
+                selectedProdSizes = selectedProdSizes.filter(s => s !== size);
+                btn.classList.remove('active');
+            } else {
+                selectedProdSizes.push(size);
+                btn.classList.add('active');
+            }
+            filterProdList();
+        }
+
+        function updateProdPriceRange() {
+            const slider = document.getElementById('prodPriceSlider');
+            const maxPriceElement = document.getElementById('prodMaxPrice');
+            if (slider && maxPriceElement) {
+                maxPriceElement.textContent = '₹' + slider.value;
+                filterProdList();
+            }
+        }
+
+        function filterProdList() {
+            const searchInput = document.getElementById('prodSearchInput');
+            const categoryElement = document.querySelector('input[name="prodCategory"]:checked');
+            const priceSlider = document.getElementById('prodPriceSlider');
+
+            const searchQuery = searchInput ? searchInput.value.toLowerCase() : '';
+            const category = categoryElement ? categoryElement.value : 'all';
+            const maxPrice = priceSlider ? parseInt(priceSlider.value) : 20000;
+
+            const filtered = prodShoeData.filter(product => {
+                const matchesSearch = product.name.toLowerCase().includes(searchQuery) ||
+                    product.color.toLowerCase().includes(searchQuery);
+                const matchesCategory = category === 'all' || product.category === category;
+                const matchesSize = selectedProdSizes.length === 0 ||
+                    selectedProdSizes.some(size => product.sizes.includes(size));
+                const matchesPrice = product.price <= maxPrice;
+
+                return matchesSearch && matchesCategory && matchesSize && matchesPrice;
+            });
+
+            displayProdShoes(filtered);
+        }
+
+        function displayProdShoes(productsToShow) {
+            const grid = document.getElementById('prodProductsGrid');
+            const count = document.getElementById('prodCountText');
+
+            if (count) {
+                count.textContent = productsToShow.length + ' ' + (productsToShow.length === 1 ? 'product' : 'products') + ' found';
+            }
+
+            if (!grid) return;
+
+            if (productsToShow.length === 0) {
+                grid.innerHTML = '<div class="prod-no-products"><p>No products match your filters</p><button onclick="clearProdFilters()">Clear Filters</button></div>';
+                return;
+            }
+
+            grid.innerHTML = productsToShow.map(product =>
+                '<div class="prod-card">' +
+                '<img src="' + product.image + '" alt="' + product.name + '" class="prod-card-image">' +
+                '<div class="prod-card-info">' +
+                '<div class="prod-card-header">' +
+                '<h3 class="prod-card-name">' + product.name + '</h3>' +
+                '<span class="prod-card-category">' + product.category + '</span>' +
+                '</div>' +
+                '<p class="prod-card-color">' + product.color + '</p>' +
+                '<div class="prod-card-footer">' +
+                '<p class="prod-card-price">₹' + product.price + '</p>' +
+                '<button class="prod-add-to-cart-btn" onclick="addToCart(' + product.id + ')">Add to Cart</button>' +
+                '</div>' +
+                '<div class="prod-card-sizes">Available sizes: ' + product.sizes.join(', ') + '</div>' +
+                '</div>' +
+                '</div>'
+            ).join('');
+        }
+
+        function clearProdFilters() {
+            const searchInput = document.getElementById('prodSearchInput');
+            const allCategory = document.querySelector('input[name="prodCategory"][value="all"]');
+            const priceSlider = document.getElementById('prodPriceSlider');
+            const maxPriceElement = document.getElementById('prodMaxPrice');
+
+            if (searchInput) searchInput.value = '';
+            if (allCategory) allCategory.checked = true;
+            if (priceSlider) priceSlider.value = 20000;
+            if (maxPriceElement) maxPriceElement.textContent = '₹20000';
+
+            selectedProdSizes = [];
+
+            const sizeButtons = document.querySelectorAll('.prod-size-btn');
+            sizeButtons.forEach(btn => btn.classList.remove('active'));
+
+            initProdSizeButtons();
+            filterProdList();
+        }
+
+        const searchInput = document.getElementById('prodSearchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', filterProdList);
+        }
+
+        const categoryRadios = document.querySelectorAll('input[name="prodCategory"]');
+        categoryRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                selectedProdSizes = [];
+                initProdSizeButtons();
+                filterProdList();
+            });
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initProdSizeButtons();
+            filterProdList();
+            updateCartCount();
+        });
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footwear - Premium shoes</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #222;
+        }
+
+        .about-page1 {
+            margin-top: 100px;
+            height: 50vh;
+            width: 100%;
+        }
+
+        .about-page1 .banner {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            background-size: cover;
+            background-image: url(./image/about2\ \(2\).png);
+            color: #fff;
+        }
+
+        .about-page1 .banner .banner-text {
+            display: flex;
+            align-items: start;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+            width: 30%;
+            margin: 100px;
+        }
+
+        .about-page1 .banner .banner-text h1 {
+            padding-top: 70px;
+        }
+
+        .about-shop {
+            color: #fff;
+            width: 87%;
+            margin: auto;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 50px;
+
+        }
+
+        .about-shop h1 {
+            color: #F9B403;
+            font-weight: 500;
+            font-size: 45px;
+        }
+
+        .about-shop-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .about-shop-content p {
+            width: 50%;
+        }
+
+        .footwear-frenzy {
+            color: #fff;
+            width: 87%;
+            margin: 0 auto 70px auto;
+            min-height: 100vh;
+        }
+
+        .footwear-frenzy h1 {
+            color: #F9B403;
+            text-align: center;
+            margin-bottom: 80px;
+            font-size: 45px;
+            font-weight: 550;
+        }
+
+        .footwear-frenzy h2 {
+            color: #F9B403;
+            font-weight: 500;
+            font-size: 30px;
+        }
+
+        .Footwear-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .Footwear-content-right img {
+            width: 600px;
+            height: 400px;
+            background-size: cover;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .Footwear-content-left {
+            width: 50%;
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            gap: 25px;
+
+        }
+
+        #secfrenzy {
+            margin-top: 50px;
+        }
+
+        .services {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+            margin: 60px;
+        }
+
+        .services h1 {
+            color: #F9B403;
+        }
+
+        .services p {
+            width: 50%;
+            text-align: center;
+        }
+
+        .our-services {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 87%;
+            margin: auto;
+        }
+
+        .services-box {
+            border: 1px solid #F9B403;
+            padding: 20px;
+
+        }
+
+        .services-box .box-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .services-box .box-top i {
+            color: #F9B403;
+            font-size: 30px;
+        }
+
+        .services-box .box-top h3 {
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        .services-box .box-content p {
+            width: 80%;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #111;
+            border: 2px solid #F9B403;
+            border-radius: 50%;
+            color: #F9B403;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+            /* Add this */
+            transform: translateY(0);
+        }
+
+        @media (max-width : 1024px) {
+            .about-page1 {
+                height: 30vh;
+                width: 100%;
+            }
+
+            .about-page1 .banner .banner-text h1 {
+                padding-top: 80px;
+            }
+
+            .about-shop {
+                width: 95%;
+                height: 23vh;
+                gap: 40px;
+                margin-top: 10px;
+
+            }
+
+            .footwear-frenzy {
+                color: #fff;
+                width: 95%;
+                margin: 0 auto 70px auto;
+                min-height: 60vh;
+            }
+
+            .Footwear-content {
+                gap: 30px;
+            }
+
+            .services {
+                margin: 60px 0;
+            }
+
+            .services p {
+                width: 60%;
+
+            }
+
+            .our-services {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                width: 87%;
+                margin: auto;
+            }
+
+
+        }
+
+        @media (max-width : 912px) {
+            .Footwear-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: column
+            }
+
+            .Footwear-content-right img {
+                width: 800px;
+                height: 400px;
+                background-size: cover;
+            }
+
+            .Footwear-content-left {
+                width: 100%;
+                display: flex;
+                align-items: start;
+                flex-direction: column;
+                gap: 25px;
+
+            }
+        }
+
+        @media (max-width : 768px) {
+            .about-page1 {
+                height: 30vh;
+            }
+
+            .about-page1 .banner {
+                padding: 10px;
+                object-fit: contain;
+                height: 250px;
+            }
+
+            .about-page1 .banner .banner-text {
+                width: 60%;
+                margin: 30px;
+            }
+
+            .about-page1 .banner .banner-text h1 {
+                padding-top: 0px;
+            }
+
+            .about-shop {
+                flex-direction: column;
+                gap: 20px;
+                margin-top: 40px;
+                height: 30vh;
+            }
+
+            .about-shop h1 {
+                font-size: 35px;
+            }
+
+            .about-shop-content {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .about-shop-content p {
+                width: 100%;
+            }
+
+            .footwear-frenzy {
+                margin: 50px auto 70px auto;
+            }
+
+            .footwear-frenzy h1 {
+                margin-bottom: 40px;
+                font-size: 35px;
+                font-weight: 500;
+            }
+
+            .footwear-frenzy h2 {
+                font-size: 25px;
+            }
+
+            .Footwear-content {
+                flex-direction: column;
+            }
+
+            .Footwear-content-right img {
+                width: 100%;
+                height: 30%;
+                margin-top: 30px;
+
+            }
+
+            .Footwear-content-left {
+                width: 100%;
+                flex-direction: column;
+
+            }
+
+            #secfrenzy {
+                margin-top: 0px;
+            }
+
+            .services {
+                margin: 60px 20px;
+            }
+
+            .services p {
+                width: 100%;
+            }
+
+            .our-services {
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            @media (max-width : 480px) {
+                .about-page1 {
+                    height: 30vh;
+                }
+
+                .about-shop {
+                    flex-direction: column;
+                    gap: 20px;
+                    margin-top: 40px;
+                    height: 40vh;
+                }
+
+                .footwear-frenzy {
+                    min-height: 60vh;
+                    margin: 140px auto 70px auto;
+                }
+
+                .Footwear-content-right img {
+                    width: 100%;
+
+                }
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="./index.html" class="logo">Footswear</a>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item">
+                        <a href="./index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="./product.html" class="nav-link">Men</a>
+                        <div class="dropdown-content">
+                            <a href="#">Sneakers</a>
+                            <a href="#">Dress Shoes</a>
+                            <a href="#">Boots</a>
+                            <a href="#">Athletic</a>
+                            <a href="#">Casual</a>
+                            <a href="#">Sandals</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="./product.html" class="nav-link">Women</a>
+                        <div class="dropdown-content">
+                            <a href="#">Heels</a>
+                            <a href="#">Flats</a>
+                            <a href="#">Sneakers</a>
+                            <a href="#">Boots</a>
+                            <a href="#">Athletic</a>
+                            <a href="#">Sandals</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="./product.html" class="nav-link">Kids</a>
+                        <div class="dropdown-content">
+                            <a href="#">Boys</a>
+                            <a href="#">Girls</a>
+                            <a href="#">Toddlers</a>
+                            <a href="#">Infants</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./product.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./faq.html" class="nav-link">FAQ's</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./contactpage.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+
+
+                <div class="nav-icons">
+                    <a href="./shopping.html">
+                        <button class="icon-btn" title="Shopping Cart" id="cartBtn">
+                            <i class="ri-shopping-cart-2-line"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </a>
+                    <a href="./signUp.html">
+                        <button class="icon-btn" title="User Account" id="userBtn">
+                            <i class="ri-user-line"></i>
+                        </button>
+                    </a>
+                </div>
+
+                <div class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+        <div class="about-page1">
+            <div class="banner">
+                <div class="banner-text">
+                    <h1>About us</h1>
+                    <p>Welcome to our "About Us" page, where we are delighted to share the story and values that drive
+                        our
+                        organization.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-shop">
+            <h1>About our shop</h1>
+            <div class="about-shop-content">
+                <p>Welcome to Steps Theme, where we believe that every journey begins with a single step. We are a
+                    dedicated
+                    team of professionals who are passionate about helping individuals and businesses take those crucial
+                    steps towards success. Our mission is to provide innovative solutions and support that propel our
+                    clients forward on their path to achieving their goals.</p>
+                <p>At Steps Theme, we have a diverse team of experts with extensive knowledge and experience in various
+                    industries. From marketing and branding to technology and design, we offer a comprehensive range of
+                    services to cater to the unique needs of our clients. Our team is constantly updated with the latest
+                    trends.</p>
+            </div>
+        </div>
+
+        <div class="footwear-frenzy">
+            <h1>Footwear Frenzy</h1>
+            <div class="Footwear-content">
+                <div class="Footwear-content-left">
+                    <h2>Shoes for Every occasions</h2>
+                    <p>We believe that understanding our clients' needs is the key to delivering exceptional results. We
+                        take the time to listen and learn about your vision, objectives, and challenges. By gaining a
+                        deep
+                        understanding of your requirements, we can tailor our strategies and solutions to meet your
+                        specific
+                        needs. Your success is our top priority, and we work closely with you every step of the way.</p>
+                    <p>In a rapidly evolving world, it's essential to stay ahead of the curve. At Steps Theme, we pride
+                        ourselves on our ability to think outside the box and provide creative and innovative solutions.
+                        Whether it's developing a unique branding strategy, designing an eye-catching website, or
+                        implementing a targeted marketing campaign, we strive to bring fresh ideas and approaches to the
+                        table.</p>
+                </div>
+                <div class="Footwear-content-right">
+                    <img src="./image/a1.avif" alt="">
+                </div>
+            </div>
+
+            <div class="Footwear-content" id="secfrenzy">
+                <div class="Footwear-content-right">
+                    <img src="./image/about-2.webp" alt="">
+                </div>
+                <div class="Footwear-content-left">
+                    <h2>Shoes and Adventure</h2>
+                    <p>We believe that collaboration is the key to achieving outstanding results. We view our clients as
+                        partners, working together towards a shared goal. We foster a collaborative environment where
+                        open
+                        communication, mutual respect, and teamwork thrive. Through regular feedback and transparent
+                        processes, we ensure that our clients are actively involved in the decision-making process and
+                        are
+                        satisfied with the final outcome.</p>
+                    <p>Excellence is at the core of everything we do. We are committed to delivering high-quality
+                        services
+                        and exceeding our clients' expectations. Our team of skilled professionals maintains the highest
+                        standards of professionalism, attention to detail, and dedication to excellence. We strive for
+                        continuous improvement, regularly evaluating our processes and adopting best practices to
+                        provide
+                        the best possible outcomes for our clients.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="services">
+            <h1>About services</h1>
+            <p>Our mission is to empower individuals with knowledge and facilitate meaningful connections through our
+                platform.We understand the importance of reliable and up-to-date information in today's fast-paced
+                world.
+            </p>
+            <div class="our-services">
+                <div class="services-box">
+                    <div class="box">
+                        <div class="box-top">
+                            <h3>Fast delivery</h3>
+                            <i class="ri-truck-line"></i>
+                        </div>
+                        <div class="box-content">
+                            <p>The specific delivery time will vary depending on the shipping address and the selected
+                                delivery
+                                option. Customers can track their order online to see the estimated...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-box">
+                    <div class="box">
+                        <div class="box-top">
+                            <h3>Many offers</h3>
+                            <i class="ri-settings-2-line"></i>
+                        </div>
+                        <div class="box-content">
+                            <p>CMS also offers a variety of training and technical assistance to help providers and
+                                state
+                                agencies meet their responsibilities under Medicare, Medicaid, and SCHIP. These...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-box">
+                    <div class="box">
+                        <div class="box-top">
+                            <h3>24/7 support</h3>
+                            <i class="ri-customer-service-line"></i>
+                        </div>
+                        <div class="box-content">
+                            <p>CMS Service support is available 24 hours a day, 7 days a week. You can reach them by
+                                phone,
+                                email, or chat. Here are the contact information for CMS Service support:</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer">
+                <div class="footerlogo">
+                    <div class="main-logo">
+                        <h2>Footswear</h2>
+                    </div>
+                    <div class="time">
+                        <p id="time">Monday - Friday:</p>
+                        <p>8:00 AM - 9:00 PM</p>
+                    </div>
+                    <p>Shoes play a crucial role in the world of fashion and personal style. Different types of shoes,
+                        such as sneakers, heels, boots, flats, etc.</p>
+                </div>
+
+                <div class="shop">
+                    <p>SHOP</p>
+                    <a href="./contactpage.html">Search</a>
+                    <a href="./faq.html">Privacy policy</a>
+                    <a href="./faq.html">Shipping & Delivery</a>
+                    <a href="./faq.html">Terms & Conditions</a>
+                </div>
+
+                <div class="about">
+                    <p>ABOUT US</p>
+                    <a href="./about.html">About us</a>
+                    <a href="./contactpage.html">Contact</a>
+                    <a href="./faq.html">Faq's</a>
+                    <a href="./productList.html">Category</a>
+                    <a href="#">Blog Page</a>
+                </div>
+
+                <div class="share">
+                    <h4>CONNECT</h4>
+                    <p>Follow us on social media for the latest updates, style tips, and exclusive previews of our
+                        newest collections.</p>
+                    <div class="apps">
+                        <div class="social-icon"><i class="ri-youtube-line"></i></div>
+                        <div class="social-icon"><i class="ri-twitter-x-line"></i></div>
+                        <div class="social-icon"><i class="ri-instagram-line"></i></div>
+                        <div class="social-icon"><i class="ri-facebook-line"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Footswear. All rights reserved.</p>
+                <img src="./image/pay.png" alt="Payment methods">
+                <div class="footer-btm-right">
+                    <a href="./faq.html">
+                        <p>FAQ</p>
+                    </a>
+                    <a href="./faq.html">
+                        <p>Privacy Policy</p>
+                    </a>
+                    <a href="./about.html">
+                        <p>About Us</p>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+        <button class="scroll-top" id="scrollTop">
+            <i class="ri-arrow-up-line"></i>
+        </button>
+    </div>
+    
+    <script>
+        const mobileToggle = document.getElementById("mobileToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        mobileToggle.addEventListener("click", function () {
+            mobileToggle.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                if (window.innerWidth <= 768) {
+                    mobileToggle.classList.remove("active");
+                    navMenu.classList.remove("active");
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", function (event) {
+            const isClickInsideNav =
+                navMenu.contains(event.target) || mobileToggle.contains(event.target);
+            if (!isClickInsideNav && navMenu.classList.contains("active")) {
+                mobileToggle.classList.remove("active");
+                navMenu.classList.remove("active");
+            }
+        });
+
+        // Scroll to top button functionality
+        const scrollTopBtn = document.getElementById("scrollTop");
+
+        // Show/hide button based on scroll position
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add("show");
+            } else {
+                scrollTopBtn.classList.remove("show");
+            }
+        });
+
+        // Smooth scroll to top when clicked
+        scrollTopBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        });
+
+        // Optional: Add some debug info
+        window.addEventListener("scroll", function () {
+            console.log("Scroll position:", window.scrollY);
+        });
+
+     
+
+    </script>
+    <script src="./cart-manager.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
